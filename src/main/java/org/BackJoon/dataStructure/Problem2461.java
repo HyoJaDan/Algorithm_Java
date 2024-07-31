@@ -2,12 +2,10 @@ package org.BackJoon.dataStructure;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-<<<<<<< HEAD
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-=======
 import java.util.*;
->>>>>>> 58b1bc4cd18edba57da3abd199e6f21604810e53
+
 
 public class Problem2461 {
     public static void main(String[] args) throws IOException {
