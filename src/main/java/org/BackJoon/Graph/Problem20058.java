@@ -1,4 +1,4 @@
-package org.BackJoon;
+package org.BackJoon.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,14 +8,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Point{
-	int y;
-	int x;
-	public Point(int y,int x) {
-		this.y=y;
-		this.x=x;
-	}
-}
+//class Point{
+//	int y;
+//	int x;
+//	public Point(int y,int x) {
+//		this.y=y;
+//		this.x=x;
+//	}
+//}
 public class Problem20058 {
 	static int mapSize;
 	static int[][] direct= {{-1,0},{1,0},{0,1},{0,-1}};
