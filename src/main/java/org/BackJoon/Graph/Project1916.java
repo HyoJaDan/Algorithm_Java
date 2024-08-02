@@ -41,7 +41,7 @@ public class Project1916 {
 			int to = Integer.parseInt(st.nextToken());
 			int value = Integer.parseInt(st.nextToken());
 			graph[from].add(new Edge(to,value)); 
-		}
+		}	
 		Arrays.fill(result,Integer.MAX_VALUE);
 		
 		st = new StringTokenizer(br.readLine());
