@@ -1,4 +1,4 @@
-package org.BackJoon;
+package main.java.org.BackJoon;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -31,7 +31,7 @@ public class Problem1202 {
 
             jewelries[i] = new Jewelry(weight, price);
         }
-        //    if (a.start < b.start) return true; // ì œì¼ ë¨¼ì € fë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+        //    if (a.start < b.start) return true; // ? œ?¼ ë¨¼ì? fë¥? ê¸°ì??œ¼ë¡? ?˜¤ë¦„ì°¨?ˆœ ? •? ¬
         Arrays.sort(jewelries, new Comparator<Jewelry>() {
             @Override
             public int compare(Jewelry o1, Jewelry o2) {

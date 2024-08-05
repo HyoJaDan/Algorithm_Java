@@ -1,4 +1,4 @@
-package org.BackJoon.basic;
+package main.java.org.BackJoon.basic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
