@@ -1,4 +1,4 @@
-package org.BackJoon.dataStructure;
+package main.java.org.BackJoon.dataStructure;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,9 +29,9 @@ public class Problem2461 {
         }
 
         /**
-         * currentPosition[n]으로 현재 n번째 배열의 위치가 담긴 위치에서
-         * 모든 열을 탐색하며 min과 max를 갱신 후전체 최소값과 비교
-         * O(n) = 1000*1000 = 백만
+         * currentPosition[n]�쑝濡� �쁽�옱 n踰덉㎏ 諛곗뿴�쓽 �쐞移섍� �떞湲� �쐞移섏뿉�꽌
+         * 紐⑤뱺 �뿴�쓣 �깘�깋�븯硫� min怨� max瑜� 媛깆떊 �썑�쟾泥� 理쒖냼媛믨낵 鍮꾧탳
+         * O(n) = 1000*1000 = 諛깅쭔
          */
         int ans=Integer.MAX_VALUE;
         while(true) {
