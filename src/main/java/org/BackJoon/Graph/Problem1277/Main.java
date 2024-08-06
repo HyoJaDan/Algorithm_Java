@@ -32,9 +32,9 @@ class Point {
 public class Main {
     static int N, W;
     static double M;
-    static Point[] map; // i 踰덉㎏ �끂�뱶�쓽 醫뚰몴
-    static boolean[][] isConnected; // �뿰寃� �뿬遺� ���옣
-    static ArrayList<Edge>[] graph; // graph[�떆�옉] = {�룄李�, 媛�以묒튂}
+    static Point[] map; // i 번째 노드의 좌표
+    static boolean[][] isConnected; // 연결 여부 저장
+    static ArrayList<Edge>[] graph; // graph[시작] = {도착, 가중치}
     static final double INF = Double.MAX_VALUE;
     static double[] result;
 
@@ -110,11 +110,12 @@ public class Main {
             }
 
             for (Edge next : graph[currentNode]) {
-                double nextDistance = currentDistance + next.weight;
-
-                if (nextDistance < result[next.to]) {
-                    result[next.to] = nextDistance;
-                    minHeap.add(new Edge(next.to, nextDistance));
+                double newCost = currentDistance + next.weight;
+                double pastCost = result[next.to];
+                
+                if (newCost < pastCost) {
+                    result[next.to] = newCost;
+                    minHeap.add(new Edge(next.to, newCost));
                 }
             }
         }
