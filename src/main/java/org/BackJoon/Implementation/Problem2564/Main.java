@@ -69,6 +69,18 @@ public class Main {
 
 	private static void rotate() {
 		
+		for(int i=0;i<4;i++) {
+			int y = direct[i][0];
+			int x = direct[i][1];
+			for(int j=0;j<4;j++) {
+				/**
+				 * temptemptmep
+				 * tmepmtpe
+				 * 
+				 */
+			}
+			
+		}
 	}
 
 }
