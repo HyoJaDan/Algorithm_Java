@@ -1,4 +1,4 @@
-package org.BackJoon.Graph.Problem13911;
+package main.java.org.BackJoon.Graph.Problem13911;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class Main {
     private static int numOfMac, numOfStarBox, MacDistance, StarBoxDistance;
     private static List<Integer> isMacNode;
     private static List<Integer> isStarBoxNode;
-    private static final long INF = 9876543210L; // ë¬´í•œëŒ€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ê°’
+    private static final long INF = 9876543210L; // ë¬´í•œ??ë¥? ?‚˜???‚´?Š” ê°?
     private static int MacNode, StarBoxNode;
 
     private static void dijkstra(int start, long[] nodeDist) {
@@ -46,7 +46,7 @@ public class Main {
                 continue;
 
             for (From nextNode : Graph[currentNode]) {
-                if (nextNode.to == MacNode || nextNode.to == StarBoxNode) // ê°€ìƒì˜ ë…¸ë“œ ì‚¬ìš© ì œì™¸
+                if (nextNode.to == MacNode || nextNode.to == StarBoxNode) // ê°??ƒ?˜ ?…¸?“œ ?‚¬?š© ? œ?™¸
                     continue;
 
                 long newCost = currentDistance + nextNode.value;
@@ -97,20 +97,20 @@ public class Main {
         for (int i = 0; i < numOfMac; i++) {
             int inputData = Integer.parseInt(st.nextToken());
             isMacNode.add(inputData);
-            Graph[MacNode].add(new From(inputData, 0L)); // ë§¥ë‚ NODEì™€ ì—°ê²°
+            Graph[MacNode].add(new From(inputData, 0L)); // ë§¥ë‚ NODE?? ?—°ê²?
             Graph[inputData].add(new From(MacNode, 0L));
         }
 
         st = new StringTokenizer(br.readLine());
         numOfStarBox = Integer.parseInt(st.nextToken());
         StarBoxDistance = Integer.parseInt(st.nextToken());
-        StarBoxNode = V + 2; // ìŠ¤ë²…NODE
+        StarBoxNode = V + 2; // ?Š¤ë²…NODE
 
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < numOfStarBox; i++) {
             int inputData = Integer.parseInt(st.nextToken());
             isStarBoxNode.add(inputData);
-            Graph[StarBoxNode].add(new From(inputData, 0L)); // ìŠ¤ë²…NODEì™€ ì—°ê²°
+            Graph[StarBoxNode].add(new From(inputData, 0L)); // ?Š¤ë²…NODE?? ?—°ê²?
             Graph[inputData].add(new From(StarBoxNode, 0L));
         }
     }
@@ -122,7 +122,7 @@ public class Main {
 
         long minDistance = INF;
         for (int i = 1; i <= V; i++) {
-            if (isMacNode.contains(i) || isStarBoxNode.contains(i)) // ë§¥ë„ë‚ ë“œë‚˜ ìŠ¤íƒ€ë²…ìŠ¤ê°€ ìœ„ì¹˜í•œ ë…¸ë“œëŠ” ì œì™¸
+            if (isMacNode.contains(i) || isStarBoxNode.contains(i)) // ë§¥ë„?‚ ?“œ?‚˜ ?Š¤??ë²…ìŠ¤ê°? ?œ„ì¹˜í•œ ?…¸?“œ?Š” ? œ?™¸
                 continue;
 
             if (MacResult[i] <= MacDistance && StarBoxResult[i] <= StarBoxDistance) {
