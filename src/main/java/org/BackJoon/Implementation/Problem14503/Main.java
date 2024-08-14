@@ -14,12 +14,84 @@ class Point{
 	}
 }
 
+class Map{
+	int grid[][];
+	int n,m;
+	
+	public Map(int n,int m) {
+		this.n=n;
+		this.m=m;
+		this.grid = new int[n][m];
+	}
+}
+
 class WashingMachine{
 	Point currentPosition;
-	static int[][] direct = {{-1,0},{0,1},{1,0},{0,-1}};
-	int direction=0;
+	int direction=0; // 0: 북쪽, 1: 동쪽, 2 :남쪽, 3 : 서쪽
+	int n,m;
+	int map[][];
+	static final int[][] direct = {{-1,0},{0,1},{1,0},{0,-1}};
 	
-	public Point rotate90(int direction) {
+	public WashingMachine() { }
+
+	public void run() {
+		while(true) {
+//			System.out.println("y: "+currentPosition.y+"x: "+currentPosition.x);
+			map[currentPosition.y][currentPosition.x]=2;
+			boolean isWorked=false;
+			
+			for(int i=0;i<4;i++) {
+				Point rotate = rotate90();
+				
+				int dy = currentPosition.y + rotate.y;
+				int dx = currentPosition.x + rotate.x;
+				
+				if(dy<0 || dx<0 || dy>=n || dx >=m ) continue;
+				if(map[dy][dx]!=0) continue;
+
+				map[dy][dx]=2;
+				currentPosition.y = dy;
+				currentPosition.x = dx;
+				isWorked=true;
+				break;
+			}
+			if(isWorked==false) {
+				int dy=0,dx=0;
+
+				if(direction==0) {
+					dy=currentPosition.y+1;
+					dx=currentPosition.x;
+				} else if(direction==1) {
+					dy= currentPosition.y;
+					dx = currentPosition.x-1;
+				} else if(direction==2) {
+					dy=currentPosition.y-1;
+					dx=currentPosition.x;
+				} else if(direction==3) {
+					dy= currentPosition.y;
+					dx = currentPosition.x+1;
+				}
+				if(map[dy][dx]==1) break;
+				else {
+					currentPosition.y = dy;
+					currentPosition.x = dx;
+				}
+			}
+		}
+		printAnswer();
+		
+	}
+	private void printAnswer() {
+		int ans=0;
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<m;j++)
+			{
+				if(map[i][j]==2) ans++;
+			}
+		}
+		System.out.println(ans);
+	}
+	private Point rotate90() {
 		if(direction==0)
 			direction=4;
 		int dy = direct[direction-1][0];
@@ -28,35 +100,23 @@ class WashingMachine{
 		
 		return new Point(dy, dx);
 	}
-	public WashingMachine() {
-		
-	}
 }
 
 public class Main {
-	private static int n,m;
-	private static int[][] map;
-	WashingMachine washingMachine = new WashingMachine();
 	
 	public static void main(String[] args)throws IOException {
-		// 해결 방법 1 : init 메서드를 non-static으로 선언
 		Main main = new Main();
-		main.init();
-		
-		// 해결 방법 2 : 의존성 주입(Dependency Injection)
-		WashingMachine washingMachine2 = new WashingMachine();
-		init2(washingMachine2);
+		WashingMachine washingMachine = new WashingMachine();
+		main.init(washingMachine);
+		washingMachine.run();
 	}
-	private static void init2(WashingMachine washingMachine) {
-		
-	}
-	
-	private void init() throws IOException {
+	private void init(WashingMachine washingMachine) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		n=Integer.parseInt(st.nextToken());
-		m=Integer.parseInt(st.nextToken());
+		washingMachine.n=Integer.parseInt(st.nextToken());
+		washingMachine.m=Integer.parseInt(st.nextToken());
+		washingMachine.map = new int[washingMachine.n][washingMachine.m];
 		
 		st = new StringTokenizer(br.readLine());
 		int r = Integer.parseInt(st.nextToken());
@@ -64,6 +124,15 @@ public class Main {
 		int d = Integer.parseInt(st.nextToken());
 		
 		washingMachine.currentPosition = new Point(r,c);
+		washingMachine.direction=d;
 		
+		for(int i=0;i<washingMachine.n;i++) {
+			st = new StringTokenizer(br.readLine());
+			for(int j=0;j<washingMachine.m;j++) {
+				washingMachine.map[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
 	}
+	
+
 }
