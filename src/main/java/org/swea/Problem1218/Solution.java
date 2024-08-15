@@ -7,7 +7,7 @@ import java.util.Deque;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Àü¼ºÈ£ {
+public class Solution {
 
 	public static void main(String args[]) throws Exception
 	{
