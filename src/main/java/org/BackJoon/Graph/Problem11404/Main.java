@@ -1,4 +1,4 @@
-package org.BackJoon.Graph.Problem11404;
+package main.java.org.BackJoon.Graph.Problem11404;
 
 public class Main {
 
