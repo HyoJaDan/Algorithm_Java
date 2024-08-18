@@ -146,5 +146,23 @@ public class Main {
             cctv.get(level).rotate90();
         }
     }
-
 }
+
+/**
+ * @requiredArgsConstructor
+ *
+ * public class AppConfig{
+ *  private final SungHoRepository sungHoRepository;
+ *
+ *
+ * public class AppConfig {
+ *     public MemberService memberService{
+ *         return new MemberServiceImpl(new MemoryMemberRepository());
+ *     }
+ * }
+ *
+ *  public temp implements SungHoRepositry{
+ *
+ *  }
+ * }
+ */
