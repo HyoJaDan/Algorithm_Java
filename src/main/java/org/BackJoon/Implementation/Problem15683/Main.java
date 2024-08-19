@@ -1,4 +1,4 @@
-package org.BackJoon.Implementation.Problem15683;
+package main.java.org.BackJoon.Implementation.Problem15683;
 
 import java.io.BufferedReader;
 import java.io.IOException;

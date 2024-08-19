@@ -1,4 +1,4 @@
-package org.BackJoon.DFS.Problem2239;
+package main.java.org.BackJoon.DFS.Problem2239;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,9 +15,9 @@ class Point{
 }
 public class Main {
     static int[][] map = new int[10][10];
-    // row가 1, 2, 3이다
+    // row媛� 1, 2, 3�씠�떎
     static boolean[][] rowVisited = new boolean[10][10];
-    // col이 1, 4, 7이다
+    // col�씠 1, 4, 7�씠�떎
     static boolean[][] colVisited = new boolean[10][10];
     static boolean[][] visited = new boolean[10][10];
     static int numOfProblem=0;

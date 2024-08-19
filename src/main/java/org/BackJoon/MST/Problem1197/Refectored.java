@@ -1,4 +1,4 @@
-package org.BackJoon.MST.Problem1197;
+package main.java.org.BackJoon.MST.Problem1197;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import java.util.StringTokenizer;
 //    }
 //}
 
-public class 최적화 {
+public class Refectored{
     static int V, E;
     static ArrayList<Edge> edge;
     static int[] parent, rank;
@@ -44,7 +44,7 @@ public class 최적화 {
 
     private static int find(int now) {
         if (parent[now] == now) return now;
-        else return parent[now] = find(parent[now]); // 경로 압축
+        else return parent[now] = find(parent[now]); // 寃쎈줈 �븬異�
     }
 
     private static void union(int from, int to) {
@@ -75,7 +75,7 @@ public class 최적화 {
 
         edge = new ArrayList<>();
         parent = new int[V + 1];
-        rank = new int[V + 1]; // 랭크 초기화
+        rank = new int[V + 1]; // �옲�겕 珥덇린�솕
         for (int i = 1; i <= V; i++) {
             parent[i] = i;
             rank[i] = 0;

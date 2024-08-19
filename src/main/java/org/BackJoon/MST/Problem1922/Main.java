@@ -1,4 +1,4 @@
-package org.BackJoon.MST.Problem1922;
+package main.java.org.BackJoon.MST.Problem1922;
 
 import java.applet.AudioClip;
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package org.BackJoon.BruteForce.Problem15684;
+package main.java.org.BackJoon.BruteForce.Problem15684;
 
 import java.io.BufferedReader;
 import java.io.IOException;

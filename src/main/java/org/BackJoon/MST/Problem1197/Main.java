@@ -1,4 +1,4 @@
-package org.BackJoon.MST.Problem1197;
+package main.java.org.BackJoon.MST.Problem1197;
 
 import java.io.BufferedReader;
 import java.io.IOException;

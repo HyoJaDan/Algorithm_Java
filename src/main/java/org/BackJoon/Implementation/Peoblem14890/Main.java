@@ -1,4 +1,4 @@
-package org.BackJoon.Implementation.Peoblem14890;
+package main.java.org.BackJoon.Implementation.Peoblem14890;
 
 import java.io.BufferedReader;
 import java.io.IOException;
