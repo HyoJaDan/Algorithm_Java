@@ -1,4 +1,4 @@
-package org.BackJoon.Map.Problem5052;
+package main.java.org.BackJoon.Map.Problem5052;
 
 import java.util.*;
 
