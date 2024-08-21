@@ -22,7 +22,7 @@ public class Main {
 			}
 		}
 		
-		Long ans=0;
+		Long ans=0L;
 		for(int i=0;i<aSize;i++) {
 			Long now = 0L;
 			for(int j=i;j<aSize;j++) {
