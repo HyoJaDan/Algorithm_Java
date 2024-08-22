@@ -1,4 +1,4 @@
-package org.swea.Problem6782;
+package main.java.org.swea.Problem6782;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,7 +15,7 @@ class Solution {
             while (true) {
                 if (N == 2)
                     break;
-                else if (N == 1) // N이 1이면 1 증가 후 종료
+                else if (N == 1) // N�씠 1�씠硫� 1 利앷� �썑 醫낅즺
                 {
                     cnt += 1;
                     break;
