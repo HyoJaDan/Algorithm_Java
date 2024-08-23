@@ -1,4 +1,4 @@
-package org.BackJoon.Implementation.Problem15685;
+package main.java.org.BackJoon.Implementation.Problem15685;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +15,13 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt(); // 커브의 개수
+        int N = sc.nextInt(); // 而ㅻ툕�쓽 媛쒖닔
 
         while (N-- > 0) {
             int x = sc.nextInt();
             int y = sc.nextInt();
-            int d = sc.nextInt(); // 시작 방향
-            int g = sc.nextInt(); // 세대
+            int d = sc.nextInt(); // �떆�옉 諛⑺뼢
+            int g = sc.nextInt(); // �꽭��
 
             draw(x, y, getDirections(d, g));
         }

@@ -1,4 +1,4 @@
-package org.swea.Problem4012;
+package main.java.org.swea.Problem4012;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class Solution {
                 }
             }
 
-            // 재료를 두 그룹으로 나누기 위한 조합 생성
+            // �옱猷뚮�� �몢 洹몃９�쑝濡� �굹�늻湲� �쐞�븳 議고빀 �깮�꽦
             combine(0, 0);
             System.out.printf("#%d %d\n", testCase, minDifference);
         }

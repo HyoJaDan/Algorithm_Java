@@ -1,4 +1,4 @@
-package org.swea.Problem4008;
+package main.java.org.swea.Problem4008;
 
 import java.io.BufferedReader;
 import java.io.IOException;

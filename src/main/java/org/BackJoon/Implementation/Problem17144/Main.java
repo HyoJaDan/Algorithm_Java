@@ -1,4 +1,4 @@
-package org.BackJoon.Implementation.Problem17144;
+package main.java.org.BackJoon.Implementation.Problem17144;
 
 import java.awt.*;
 import java.io.BufferedReader;

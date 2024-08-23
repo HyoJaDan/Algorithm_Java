@@ -1,4 +1,4 @@
-package org.BackJoon.BFS.Problem16234;
+package main.java.org.BackJoon.BFS.Problem16234;
 
 import java.io.BufferedReader;
 import java.io.IOException;
