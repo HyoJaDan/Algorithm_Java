@@ -1,21 +1,26 @@
 package main.java.org;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Study {
 
-    public static void main(String[] args) {
-    	TreeSet<Integer> set = new TreeSet<>();
-    	
-    	set.add(1);
-    	set.add(2);
-    	set.add(3);
-    	System.out.println(set.higher(2)); // 3
-    	System.out.println(set.lower(2)); // 1
-    }
+	static int N = 5; // 원소의 개수
+	static boolean[] visited = new boolean[N]; // 원소가 부분집합에 포함되는지 여부를 저장하는 배열
+	static char[] ans = new char[5];
+	public static void run(int level, int flag){
+		if( level == 3){
+			System.out.println(ans);
+			return;
+		}
+
+		for(int i=1;i<=5;i++){
+			if((flag & 1 << i) !=0) continue;
+			ans[level]= (char) (i+'0');
+			run(level+1, flag | 1<< i);
+		}
+	}
+
+	public static void main(String[] args){
+		run(0,0);
+	}
 }

@@ -1,122 +1,84 @@
-package main.java.org.BackJoon.BruteForce.Problem6987;
+package org.BackJoon.BruteForce.Problem6987;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
+import java.io.*;
 
-//A=0 B=1 C=2 D=3 E=4 F=5
-// win 0 BIgin 1 lose 2
-public class Main {
-	private static int[][] scores, answers =new int[6][3];;
-	private static int[] path = new int[15];
-	private static boolean isDone=false;
-	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		for(int tc=0;tc<4;tc++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			answers = new int[6][3];
-			isDone=false;
-			for (int i = 0; i < 6; i++) {
-				for (int j = 0; j < 3; j++) {
-			        answers[i][j] = Integer.parseInt(st.nextToken());
-			    }
-			}
-			
-			bruteForce(0);
-			if(isDone)System.out.print("1 ");
-			else System.out.print("0 ");
-		}
-	}
-	public static void bruteForce(int level) {
-//		if(level==5) {
-//			int now =0;
-//			int temp[] = new int[3];
-//			while(now<5) {
-//				
-//				if(path[now]==0) {
-//					temp[0]++;
-//				}
-//				else if(path[now]==1) {
-//					temp[1]++;
-//				}
-//				else if(path[now]==2) {
-//					temp[2]++;
-//				}
-//				now++;
-//			}
-//			for(int j=0;j<3;j++) {
-//				if(answers[0][j]!=temp[j])
-//					return;
-//			}
-//		}
-//		if(level==9) {
-//			scores = new int[6][3];
-//			int now=0;
-//			for(int i=0;i<2;i++) {
-//				for(int j=i+1;j<6;j++) {
-//					if(path[now]==0) {
-//						scores[i][0]++;
-//						scores[j][2]++;
-//					}
-//					else if(path[now]==1) {
-//						scores[i][1]++;
-//						scores[j][1]++;
-//					}
-//					else if(path[now]==2) {
-//						scores[i][2]++;
-//						scores[j][0]++;
-//					}
-//					now++;
-//				}
-//			}
-//			for(int i=1;i<2;i++	) {
-//				for(int j=0;j<3;j++) {
-//					if(answers[i][j]!=scores[i][j])
-//						return;
-//				}
-//			}
-//			
-//			
-//			
-//		}
-		if(level==15) {
-			scores = new int[6][3];
-			int now=0;
-			for(int i=0;i<6;i++) {
-				for(int j=i+1;j<6;j++) {
-					if(path[now]==0) {
-						scores[i][0]++;
-						scores[j][2]++;
-					}
-					else if(path[now]==1) {
-						scores[i][1]++;
-						scores[j][1]++;
-					}
-					else if(path[now]==2) {
-						scores[i][2]++;
-						scores[j][0]++;
-					}
-					now++;
-				}
-			}
-			for(int i=1;i<6;i++	) {
-				for(int j=0;j<3;j++) {
-					if(answers[i][j]!=scores[i][j])
-						return;
-				}
-			}
-			isDone=true;
+public class Main{
+	public static final int MAX_TEAM = 6;
+	public static int size = 15;
+	public static int[][] fight;
+	public static int result;
+
+	public static void backTracking(int depth, int[][] games, int idx) {
+		if(depth == size) {
+			result = 1;
 			return;
 		}
-		
-		for(int i=0;i<3;i++) {
-			path[level]=i;
-			bruteForce(level+1);
-			path[level]=0;
-			
-			if(isDone) return;
+
+		if(result == 1) {
+			return;
 		}
+		int a = fight[idx][0];
+		int b = fight[idx][1];
+
+		if(games[a][0] > 0 && games[b][2] > 0) { //a가 이기고 b가 패배
+			games[a][0] -= 1;
+			games[b][2] -= 1;
+			backTracking(depth+1, games, idx+1);
+			games[a][0] += 1;
+			games[b][2] += 1;
+		}
+		if(games[a][1] > 0 && games[b][1] > 0) { //비길때
+			games[a][1] -= 1;
+			games[b][1] -= 1;
+			backTracking(depth+1, games, idx+1);
+			games[a][1] += 1;
+			games[b][1] += 1;
+		}
+		if(games[a][2] > 0 && games[b][0] > 0) { //a가 지고 b가 이길
+			games[a][2] -= 1;
+			games[b][0] -= 1;
+			backTracking(depth+1, games, idx+1);
+			games[a][2] += 1;
+			games[b][0] += 1;
+		}
+	}
+
+
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		fight = new int[size][2];
+
+		int index = 0;
+		for(int i=0;i<MAX_TEAM;i++) { //진행되는 경기
+			for(int j=i+1;j<MAX_TEAM;j++) {
+				fight[index][0] = i;
+				fight[index++][1] = j;
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+		for(int tc=0;tc<4;tc++) {
+			boolean valid = true;
+			int[][] games = new int[6][3];
+			result = 0;
+			st = new StringTokenizer(br.readLine());
+
+			for(int i=0;i<6;i++) { //각 경기 결과 저장
+				games[i][0] = Integer.parseInt(st.nextToken());
+				games[i][1] = Integer.parseInt(st.nextToken());
+				games[i][2] = Integer.parseInt(st.nextToken());
+
+				if((games[i][0] + games[i][1] + games[i][2]) != 5) {
+					valid = false;
+				}
+			}
+
+
+			if(valid) backTracking(0,games, 0);
+			sb.append(result).append(" ");
+		}
+		System.out.println(sb);
 	}
 }
