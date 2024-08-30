@@ -1,4 +1,4 @@
-package org.BackJoon.BruteForce.Problem6987;
+package main.java.org.BackJoon.BruteForce.Problem6987;
 
 import java.util.*;
 import java.io.*;
@@ -21,21 +21,21 @@ public class Main{
 		int a = fight[idx][0];
 		int b = fight[idx][1];
 
-		if(games[a][0] > 0 && games[b][2] > 0) { //a가 이기고 b가 패배
+		if(games[a][0] > 0 && games[b][2] > 0) { //a媛� �씠湲곌퀬 b媛� �뙣諛�
 			games[a][0] -= 1;
 			games[b][2] -= 1;
 			backTracking(depth+1, games, idx+1);
 			games[a][0] += 1;
 			games[b][2] += 1;
 		}
-		if(games[a][1] > 0 && games[b][1] > 0) { //비길때
+		if(games[a][1] > 0 && games[b][1] > 0) { //鍮꾧만�븣
 			games[a][1] -= 1;
 			games[b][1] -= 1;
 			backTracking(depth+1, games, idx+1);
 			games[a][1] += 1;
 			games[b][1] += 1;
 		}
-		if(games[a][2] > 0 && games[b][0] > 0) { //a가 지고 b가 이길
+		if(games[a][2] > 0 && games[b][0] > 0) { //a媛� 吏�怨� b媛� �씠湲�
 			games[a][2] -= 1;
 			games[b][0] -= 1;
 			backTracking(depth+1, games, idx+1);
@@ -51,7 +51,7 @@ public class Main{
 		fight = new int[size][2];
 
 		int index = 0;
-		for(int i=0;i<MAX_TEAM;i++) { //진행되는 경기
+		for(int i=0;i<MAX_TEAM;i++) { //吏꾪뻾�릺�뒗 寃쎄린
 			for(int j=i+1;j<MAX_TEAM;j++) {
 				fight[index][0] = i;
 				fight[index++][1] = j;
@@ -65,7 +65,7 @@ public class Main{
 			result = 0;
 			st = new StringTokenizer(br.readLine());
 
-			for(int i=0;i<6;i++) { //각 경기 결과 저장
+			for(int i=0;i<6;i++) { //媛� 寃쎄린 寃곌낵 ���옣
 				games[i][0] = Integer.parseInt(st.nextToken());
 				games[i][1] = Integer.parseInt(st.nextToken());
 				games[i][2] = Integer.parseInt(st.nextToken());
