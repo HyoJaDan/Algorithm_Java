@@ -1,4 +1,4 @@
-package main.java.org.BackJoon;
+package main.java.org.BackJoon.Problem1202;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

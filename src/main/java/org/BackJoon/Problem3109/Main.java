@@ -1,4 +1,4 @@
-package main.java.org.BackJoon.Probmel3109;
+package main.java.org.BackJoon.Problem3109;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

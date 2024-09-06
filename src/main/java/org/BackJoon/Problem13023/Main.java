@@ -1,4 +1,4 @@
-package main.java.org.BackJoon.Main13023;
+package main.java.org.BackJoon.Problem13023;
 /**
  * 2024-08-27 09:30~09:54
  * @author Jun

@@ -1,4 +1,4 @@
-package main.java.org.BackJoon.Project1916;
+package main.java.org.BackJoon.Problem1916;
 
 import java.io.BufferedReader;
 import java.io.IOException;
