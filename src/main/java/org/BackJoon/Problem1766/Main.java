@@ -1,4 +1,4 @@
-package org.BackJoon.TopologicalSort.Problem1766;
+package org.BackJoon.Problem1766;
 
 import java.io.*;
 import java.util.*;
