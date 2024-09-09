@@ -1,4 +1,4 @@
-package org.BackJoon.DP.LCS;
+package main.java.org.BackJoon.DP.LCS;
 
 import java.io.*;
 import java.util.*;
@@ -39,6 +39,6 @@ public class Main {
             }
         }
 
-        System.out.println(ans.reverse().toString()); // LCS 문자열 출력
+        System.out.println(ans.reverse().toString()); // LCS 臾몄옄�뿴 異쒕젰
     }
 }
