@@ -1,4 +1,4 @@
-package org.BackJoon.Problem2179;
+package main.java.org.BackJoon.Problem2179;
 
 
 import java.util.*;
