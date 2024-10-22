@@ -1,16 +1,16 @@
-package org.BackJoon.Problem14891;
+package main.java.org.BackJoon.Problem14891;
 
 import java.io.*;
 import java.util.*;
 
 public class Main {
     /*
-    8개 4줄 각 톱니바퀴 상태  [3]에 맞다음
+    8媛� 4以� 媛� �넲�땲諛뷀�� �긽�깭  [3]�뿉 留욌떎�쓬
     0 = N,
     1 = S -> true
 
-    회전 횟수 numOfRotate
-    톱니바퀴, 1 : 시계 -1 : 반시계
+    �쉶�쟾 �슏�닔 numOfRotate
+    �넲�땲諛뷀��, 1 : �떆怨� -1 : 諛섏떆怨�
      */
     static boolean arr[][] = new boolean[5][8];
     static int rotate[][];
@@ -28,7 +28,7 @@ public class Main {
 
             boolean currentDirection = isDirectionClock;
 
-//            System.out.println("===============±rotate===============±");
+//            System.out.println("===============짹rotate===============짹");
             int i;
             for(i= whichWheel; i<4; i++){
                 if(arr[i][2] == arr[i+1][6]) {

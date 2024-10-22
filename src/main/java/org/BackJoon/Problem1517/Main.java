@@ -1,64 +1,67 @@
-package org.BackJoon.Problem1517;
+package main.java.org.BackJoon.Problem1517;
 
 import java.util.*;
 import java.io.*;
 
 public class Main {
-    static long count = 0;
-
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-
-        long[] arr = new long[N];
-        long[] temp = new long[N];
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        for (int i = 0; i < N; i++) {
-            arr[i] = Long.parseLong(st.nextToken());
-        }
-        mergeSort(arr, 0, arr.length - 1, temp);
-
-        System.out.println(count);
+    static int n,arr[],tempArr[];
+    static Long ans = 0L;
+    
+    public static void main(String[] args) throws IOException{
+    	init();
+    	devideAndConquer(0,arr.length-1);
+    	
+		System.out.println(ans);
     }
+    public static void devideAndConquer(int left, int right) {
+    	if(left < right) {
+    		int mid = (left + right) / 2;
+    		devideAndConquer(left, mid);
+    		devideAndConquer(mid+1, right);
+    		
+    		merge(left, right);
 
-    public static void mergeSort(long[] arr, int left, int right, long[] temp) {
-        if (left != right) {
-            int mid = (left + right) / 2;
-            mergeSort(arr, left, mid, temp);
-            mergeSort(arr, mid + 1, right, temp);
-            merge(arr, left, right, temp);
-        }
+    	}
     }
+    public static void merge(int l, int r) {
+    	//left와 right는 두 배열중에서 (실제론 하나의 배열이지만) 
+    	//왼쪽배열의 첫번째, 오른쪽 배열의 첫번째를 말한다.
+    	int left = l;
+    	int mid = (l+r)/2;
+    	int right = mid+1;
+    	int i = left;
+    	System.out.println(l + " " + r);
+    	while(left <= mid && right <= r) {
+    		//내림차순은 <= 를 >로 바꾸면 된다
+     		if(arr[left] <= arr[right]) {
+    			tempArr[i++] = arr[left++];
+    		} else {
+    			ans += mid - left + 1;
+    			tempArr[i++] = arr[right++];
+    		}
+    	}
 
-    public static void merge(long[] arr, int left, int right, long[] temp) {
-        int m = (left + right) / 2;
-        int l = left;
-        int r = m + 1;
-        int i = left;
-
-        while (l <= m && r <= right) {
-            if (arr[l] > arr[r]) {
-                count += (m - l + 1);
-                temp[i++] = arr[r++];
-            } else {
-                temp[i++] = arr[l++];
-            }
-        }
-
-        if (l > m) {
-            while (r <= right) {
-                temp[i++] = arr[r++];
-            }
-        }
-
-        if (r > l) {
-            while (l <= m) {
-                temp[i++] = arr[l++];
-            }
-        }
-
-        for (int j = left; j <= right; j++) {
-            arr[j] = temp[j];
-        }
+    	// 두 번째 데이터에 있는 값을 다 옮긴 경우
+    	while(left <= mid ) {
+    		tempArr[i++] = arr[left++]; 
+    	}
+    	// 첫 번째 데이터에 있는 값을 다 옮긴 경우
+    	while(right <= r) {
+    		tempArr[i++] = arr[right++];
+    	}
+    	
+    	for(int j=l; j<=r;j++) {
+    		arr[j] = tempArr[j];
+    	}
+    }
+    public static void init() throws IOException{
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	n = Integer.parseInt(br.readLine());
+    	StringTokenizer st = new StringTokenizer(br.readLine());
+    	tempArr = new int[n];
+    	arr = new int[n];
+    	for(int i=0;i<n;i++) {
+    		arr[i] = Integer.parseInt(st.nextToken());
+    	}
     }
 }

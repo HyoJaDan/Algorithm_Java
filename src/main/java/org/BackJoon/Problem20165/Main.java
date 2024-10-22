@@ -1,4 +1,4 @@
-package org.BackJoon.Problem20165;
+package main.java.org.BackJoon.Problem20165;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
