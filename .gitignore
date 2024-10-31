@@ -30,3 +30,15 @@ target/
 ### Mac OS ###
 .DS_Store
 /.metadata/
+
+
+
+# Ignore specific files
+.classpath
+.project
+pom.xml
+.idea/
+.metadata/
+.settings/
+bin/
+B형 특강 1일차 수업자료/
