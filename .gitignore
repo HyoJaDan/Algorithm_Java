@@ -34,8 +34,7 @@ target/
 
 
 # Ignore specific files
-.gitignore
-gitignore
+
 .classpath
 .project
 pom.xml
