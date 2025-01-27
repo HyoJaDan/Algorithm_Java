@@ -1,48 +1,27 @@
-import java.util.*;
 import java.io.*;
-
-class Node implements Comparable<Node>{
-    int to,cost;
-    public Node(int to,int cost){
-        this.to=to;
-        this.cost=cost;
-    }
-    @Override
-    public int compareTo(Node other){
-        return Integer.compare(this.cost, other.cost);
-    }
-}
-
+import java.util.*;
 public class Main{
-    static List<Node>[] graph;
-    static int n,m,start;
-    static int[] result;
-    static final int INF = Integer.MAX_VALUE;
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    public static void main(String[] args){
+        TreeMap<String, String> list = new TreeMap<String, String>();
 
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        start = Integer.parseInt(st.nextToken());
-        graph = new ArrayList[n+1];
-        result = new int[n+1];
+        String[] key = { "a", "b", "c", "d", "e" };
+        String[] value = { "apple", "banana", "candy", "dog", "enum" };
 
-        for(int i=0;i<m;i++){
-            int from,to,value;
-            st = new StringTokenizer(br.readLine());
-            from = Integer.parseInt(st.nextToken());
-            to = Integer.parseInt(st.nextToken());
-            value = Integer.parseInt(st.nextToken());
+        // 데이터 삽입
+        for (int i = 0; i < key.length; i++)
+            list.put(key[i], value[i]);
 
-            graph[from].add(new Node(to,value));
-        }
-        Arrays.fill(result,INF);
+        System.out.println(list.ceilingEntry("A")); // "a=apple"
+        System.out.println(list.ceilingKey("A"));   // "a"
 
-        dijkstra(start);
-    }
-    public static void dijkstra(int start){
-        PriorityQueue<Node> min_heap = new PriorityQueue<>();
+        System.out.println(list.floorEntry("z"));   // "e=enum"
+        System.out.println(list.floorKey("z"));     // "e"
 
+        //[ higherEntry() / higherKey() / lowerEntry() / lowerKey() ]
+        // 위의 메소드와 비슷하지만, "같거나"가 빠짐
+        System.out.println(list.higherEntry("a"));  // "b=banana"
+        System.out.println(list.higherKey("a"));    // "b"
+        System.out.println(list.lowerEntry("e"));   // "d=dog"
+        System.out.println(list.lowerKey("e"));     // "d"
     }
 }
