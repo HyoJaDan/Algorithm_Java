@@ -34,7 +34,7 @@ class Tree {
     static final int MAX_CHILD_NUM = 2;
      
     class TreeNode {
-        iㅂt parent;
+        int parent;
         int []child = new int[MAX_CHILD_NUM];
         public TreeNode(int parent)
         {

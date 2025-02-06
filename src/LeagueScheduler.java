@@ -3,7 +3,7 @@ import java.util.List;
 
 public class LeagueScheduler {
     public static void main(String[] args) {
-        int n = 6; // 팀의 수 (예: 6)
+        int n = 9; // 팀의 수 (예: 6)
         if (n % 2 != 0) {
             n++; // 홀수 팀이면 더미 팀 추가
         }

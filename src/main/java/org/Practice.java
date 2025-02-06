@@ -1,6 +1,5 @@
-import java.io.*;
 import java.util.*;
-public class Main{
+public class Practice {
     public static void main(String[] args){
         TreeMap<Integer, Integer> map = new TreeMap<>();
 
